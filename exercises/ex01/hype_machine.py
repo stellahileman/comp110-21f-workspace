@@ -1,5 +1,9 @@
-# TODO: Write docstring here
+"""Get ready to get hyped"""
 
-# TODO: Initialize __author__ variable here
+__author__ = "730400423"
 
-# TODO: Implement your program logic here
+name: str = input("Hey there! What is your name again? ")
+
+print(name + " , what is up?!?")
+print("Welcome back, " + name + "!!!")
+print("It is always the best when you are around, " + name + ". Come again soon!")
