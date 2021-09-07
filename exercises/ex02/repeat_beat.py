@@ -14,5 +14,5 @@ else:
         final = str(final + sound + " ")
         original = original + 1
 
-final: str = final + sound
+final = final + sound
 print(final)

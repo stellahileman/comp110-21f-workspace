@@ -18,3 +18,5 @@ else:
                 print("You will meet your soulmate at Lenoir!")
             else:
                 print(" ")
+
+print("Now, go spread positive vibes!")

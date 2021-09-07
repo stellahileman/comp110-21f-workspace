@@ -13,4 +13,4 @@ while pos < length:
         count = count + 1
     pos = pos + 1
 
-print(count)
+print("Count: " + str(count))
