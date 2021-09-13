@@ -3,7 +3,7 @@
 __author__ = "730400423"
 
 
-def find_duplicate(word):
+def find_duplicate(word: str) -> bool:
     """To find a duplicate letter"""
     pos_start: int = 0
     while pos_start < (len(word) - 1):
