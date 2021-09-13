@@ -1,4 +1,4 @@
-"""Finding duplicate letters in a word."""
+"""Finding duplicate letters in a word!"""
 
 __author__ = "730400423"
 
