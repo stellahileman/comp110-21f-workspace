@@ -1,34 +1,71 @@
 """Choose your own adventure, getting to class style!"""
 
-points: int = 0
-player: str = input("Hey! Welcome to the game! To get started I first have to know your name: ")
+
+# Emojis
+CLOCK: str = '\U000023F0'
+BED: str = '\U0001F6CF'
+COFFEE: str = '\U00002615'
+TEETH: str = '\U0001F9B7'
+DRESSED: str = '\U0001F455'
+BOOK: str = '\U0001F4D4'
+MUSIC: str = '\U0001F3B6'
+SHOWER: str = '\U0001F6BF'
+COMPUTER: str = '\U0001F5A5'
+SCALE: str = '\U00002696'
 
 
 def main() -> None:
+    global points
+    global player
+    points = 0
+    player: str
     greet()
-    print("BEEP! BEEP! BEEP!")
-    print(f"Good morning {player}!")
-    print("How do you want to start your day?")
-    print("a. snooze the alarm \U000023F0")
-    print("b. jump out of bed \U0001F6CF")
-    print("c. make some coffee \U00002615")
-    loop = 0
-    while loop < 1:
-        choice: str = input("Make your choice here: ")
-        if choice == "a":
-            loop = 2
-            snooze()
-        if choice == "b":
-            loop = 2
-            jump()
-        if choice == "c":
-            loop = 2
-            coffee()
-        else:
-            print("You did not choose an answer!!! Try again. This time type either a, b, or c.")
-
+    redo = 1
+    while redo == 1:
+        print("BEEP! BEEP! BEEP!")
+        print(f"Good morning {player}!")
+        print("How do you want to start your day?")
+        print(f"a. snooze the alarm {CLOCK}")
+        print(f"b. jump out of bed {BED}")
+        print(f"c. make some coffee {COFFEE}")
+        loop = 0
+        while loop < 1:
+            choice: str = input("Make your choice here: ")
+            if choice == "a":
+                loop = 2
+                snooze()
+            elif choice == "b":
+                loop = 2
+                jump()
+            elif choice == "c":
+                loop = 2
+                coffee()
+            else:
+                print("You did not choose an answer!!! Try again. This time type either a, b, or c.")
+        print(" ")
+        print("Thanks for playing the game!")
+        print("Let's see how you did!!")
+        points_again: int = score(points)
+        print(f"Do you want to try again? Maybe we can beat {points_again}")
+        print("a. yes")
+        print("b. no")
+        loop = 0
+        while loop < 1:
+            choice: str = input("Make your choice here: ")
+            if choice == "a":
+                loop = 2
+                redo = 1
+            elif choice == "b":
+                loop = 2
+                print("Ok! See you later!")
+                redo = 0
+            else:
+                print("You did not choose an answer!!! Try again. This time type either a or b")
+        
 
 def greet() -> None:
+    global player
+    player = input("Hey! Welcome to the game! To get started I first have to know your name: ")
     print(" ")
     print(f"Welcome {player}, let me tell you how this game works!")
     print("Throughout the game you will be faced with three choices: a, b, or c.")
@@ -49,19 +86,19 @@ def snooze() -> None:
     print("BEEP! BEEP! BEEP!")
     print("DUDE! You have fifteen minutes to leave for class!!! Get up!")
     print("What should you do first? ")
-    print("a. brush your teeth \U0001F9B7")
-    print("b. get dressed \U0001F455")
-    print("c. get that last minute studying done \U0001F4D4")
+    print(f"a. brush your teeth {TEETH}")
+    print(f"b. get dressed {DRESSED}")
+    print(f"c. get that last minute studying done {BOOK}")
     loop = 0
     while loop < 1:
         choice: str = input("Make your choice here: ")
         if choice == "a":
             loop = 2
             teeth()
-        if choice == "b":
+        elif choice == "b":
             loop = 2
             dressed()
-        if choice == "c":
+        elif choice == "c":
             loop = 2
             studying_early()
         else:
@@ -70,33 +107,35 @@ def snooze() -> None:
 
 def jump() -> None:
     global points
+    global player
     points = points - 1
     print(f"You have {points} player points.")
     print(" ")
-    print("C'mon " + player + "! Did you really forget that you lofted your bed??")
+    print(f"C'mon {player} ! Did you really forget that you lofted your bed??")
     print("Now we have to take you to student health, good luck getting to class now.")
 
 
 def coffee() -> None:
     global points
+    global player
     points = points + 2
     print(f"You have {points} player points.")
     print(" ")
     print("Mmmmm... smells so good")
     print("What a lovely morning, what do you want to do next?")
-    print("a. play some good wake-up music \U0001F3B6")
-    print("b. get some last-minute studying in \U0001F4D4")
-    print("c. take a shower \U0001F6BF")
+    print(f"a. play some good wake-up music {MUSIC}")
+    print(f"b. get some last-minute studying in {BOOK}")
+    print(f"c. take a shower {SHOWER}")
     loop = 0
     while loop < 1:
         choice: str = input("Make your choice here: ")
         if choice == "a":
             loop = 2
             music()
-        if choice == "b":
+        elif choice == "b":
             loop = 2
             studying_earlier()
-        if choice == "c":
+        elif choice == "c":
             loop = 2
             shower()
         else:
@@ -112,15 +151,15 @@ def teeth() -> None:
     print("You try to open the bathroom door and...")
     print("What??? It is locked! Someone is taking a shower!")
     print("Should you")
-    print("a. use the lobby bathroom to brush your teeth \U0001F9B7")
-    print("b. get dressed \U0001F455")
+    print(f"a. use the lobby bathroom to brush your teeth {TEETH}")
+    print(f"b. get dressed {DRESSED}")
     loop = 0
     while loop < 1:
         choice: str = input("Make your choice here: ")
         if choice == "a":
             loop = 2
             lobby()
-        if choice == "b":
+        elif choice == "b":
             loop = 2
             dressed()
         else:
@@ -134,15 +173,15 @@ def dressed() -> None:
     print(" ")
     print("Ok nice, one thing done.")
     print("What is next??")
-    print("a. some last minute studying \U0001F4D4")
-    print("b. brushing teeth \U0001F9B7")
+    print(f"a. some last minute studying {BOOK}")
+    print(f"b. brushing teeth {TEETH}")
     loop = 0
     while loop < 1:
         choice: str = input("Make your choice here: ")
         if choice == "a":
             loop = 2
             studying_early()
-        if choice == "b":
+        elif choice == "b":
             loop = 2
             later_teeth()
         else:
@@ -151,6 +190,7 @@ def dressed() -> None:
 
 def studying_early() -> None:
     global points
+    global player
     points = points - 1
     print(f"You have {points} player points.")
     print(" ")
@@ -199,17 +239,18 @@ def hurried() -> None:
     print("Hmmmm... looks like when we are late we have to guess the right number to get into class!")
     print("IT WILL BE A NUMBER ONE TO TEN")
     print("MYSTERIOUS MAN- WOULD YOU LIKE:")
-    print("a. YOUR COMPUTER FRIEND TO CHOOSE A NUMBER \U0001F5A5")
-    print("OR b. CHOOSE A NUMBER YOURSELF \U00002696")
+    print(f"a. YOUR COMPUTER FRIEND TO CHOOSE A NUMBER {COMPUTER}")
+    print(f"OR b. CHOOSE A NUMBER YOURSELF {SCALE}")
     loop = 0
     while loop < 1:
         choice: str = input("Make your choice here: ")
         if choice == "a":
             loop = 2
             guess = computer()
-        if choice == "b":
+        elif choice == "b":
             loop = 2
-            guess = choose()
+            guessed_number: int = int(input("Choose a number: "))
+            guess = choose(guessed_number)
         else:
             print("You did not choose an answer!!! Try again. This time type either a or b")
     if guess == 7:
@@ -226,10 +267,9 @@ def computer() -> int:
     return guess
 
 
-def choose() -> int:
-    guess: int = int(input("Choose a number: "))
-    print(f"You guessed {guess}")
-    return guess
+def choose(a: int) -> int:
+    print(f"You guessed {a}")
+    return a
 
 
 # Coffee Answers
@@ -255,15 +295,15 @@ def studying_earlier() -> None:
     print("...")
     print("Wow you finished that entire COMP 110 assignment?!? ")
     print("What would you like to do next?")
-    print("a. get dressed \U0001F455")
-    print("b. shower \U0001F6BF")
+    print(f"a. get dressed {DRESSED}")
+    print(f"b. shower {SHOWER}")
     loop = 0
     while loop < 1:
         choice: str = input("Make your choice here: ")
         if choice == "a":
             loop = 2
             dressed_early()
-        if choice == "b":
+        elif choice == "b":
             loop = 2
             shower()
         else:
@@ -278,15 +318,15 @@ def shower() -> None:
     print("Good choice!")
     print("...")
     print("OK what is next?")
-    print("a. get dressed \U0001F455")
-    print("b. brush teeth \U0001F9B7")
+    print(f"a. get dressed {DRESSED}")
+    print(f"b. brush teeth {TEETH}")
     loop = 0
     while loop < 1:
         choice: str = input("Make your choice here: ")
         if choice == "a":
             loop = 2
             dressed_early()
-        if choice == "b":
+        elif choice == "b":
             loop = 2
             early_teeth()
         else:
@@ -296,6 +336,7 @@ def shower() -> None:
 # Studying early answer
 def dressed_early() -> None:
     global points
+    global player
     points = points + 2
     print(f"You have {points} player points.")
     print(" ")
@@ -310,6 +351,7 @@ def dressed_early() -> None:
 
 def early_teeth() -> None:
     global points
+    global player
     points = points + 2
     print(f"You have {points} player points.")
     print(" ")
@@ -328,7 +370,24 @@ def class_on_time() -> None:
     print("You look ready to learn about strings and lists now!")
 
 
-print(str(points))
+# Score
+def score(a: int) -> int:
+    print(f"Your final score is: {a}")
+    if points >= 8:
+        print("Wow great job!! You got a perfect score!")
+    else:
+        if points >= 6:
+            print("Great job getting to class!")
+        else:
+            if points >= 3:
+                print("Eh. You did ok")
+            else:
+                if points >= 0:
+                    print("Uhhhh... you did not do so good bud.")
+                else:
+                    print("Wow!! Below 0?!?! That is impressive on it's own.")
+    return a
+    
 
 if __name__ == "__main__":
     main()
