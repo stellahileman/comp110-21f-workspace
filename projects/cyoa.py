@@ -18,8 +18,9 @@ SCALE: str = '\U00002696'
 
 
 def main() -> None:
+    """To start off the game."""
     global points
-    points = 0
+    points: int = 0
     greet()
     redo = 1
     while redo == 1:
@@ -65,6 +66,7 @@ def main() -> None:
         
 
 def greet() -> None:
+    """To introduce the instructions."""
     global player
     player = input("Hey! Welcome to the game! To get started I first have to know your name: ")
     print(" ")
@@ -78,6 +80,7 @@ def greet() -> None:
 
 # First Choice Answers
 def snooze() -> None:
+    """What if you snooze the alarm."""
     global points
     points = points + 1
     print(f"You have {points} player points.")
@@ -107,6 +110,7 @@ def snooze() -> None:
 
 
 def jump() -> None:
+    """What if you jump out of bed."""
     global points
     global player
     points = points - 1
@@ -117,6 +121,7 @@ def jump() -> None:
 
 
 def coffee() -> None:
+    """What if you start some coffee."""
     global points
     global player
     points = points + 2
@@ -145,6 +150,7 @@ def coffee() -> None:
 
 # Snooze Answers
 def teeth() -> None:
+    """What if you snooze the alarm and try to brush your teeth."""
     global points
     points = points + 1
     print(f"You have {points} player points.")
@@ -168,6 +174,7 @@ def teeth() -> None:
 
 
 def dressed() -> None:
+    """What if you snooze your alarm and then get dressed."""
     global points
     points = points + 2
     print(f"You have {points} player points.")
@@ -190,6 +197,7 @@ def dressed() -> None:
 
 
 def studying_early() -> None:
+    """What if you snooze your alarm and then try to get some studying done."""
     global points
     global player
     points = points - 1
@@ -203,6 +211,7 @@ def studying_early() -> None:
 
 # Teeth Answer
 def lobby() -> None:
+    """What if you snooze your alarm, try to brush your teeth, and then try again in the lobby."""
     global points
     points = points + 1
     print(f"You have {points} player points.")
@@ -217,6 +226,7 @@ def lobby() -> None:
 
 # Dressed Answer
 def later_teeth() -> None:
+    """What if you snooze the alarm, get dressed, and brush your teeth."""
     global points
     points = points + 1
     print(f"You have {points} player points.")
@@ -228,6 +238,7 @@ def later_teeth() -> None:
 
 # For when about to be late
 def hurried() -> None:
+    """What if you snooze the alarm and after getting ready only have 15 minutes to get to class."""
     global points
     points = points + 1
     print(f"You have {points} player points.")
@@ -263,6 +274,7 @@ def hurried() -> None:
     
 
 def computer() -> int:
+    """Having the computer choose a random number."""
     from random import randint
     guess: int = randint(1, 10)
     print(f"I guessed {guess}")
@@ -270,12 +282,14 @@ def computer() -> int:
 
 
 def choose(a: int) -> int:
+    """The player choosing a number."""
     print(f"You guessed {a}")
     return a
 
 
 # Coffee Answers
 def music() -> None:
+    """What if you get up and make some coffee."""
     global points
     points = points - 1
     print(f"You have {points} player points.")
@@ -289,6 +303,7 @@ def music() -> None:
 
 
 def studying_earlier() -> None:
+    """What if you get some early morning studying done."""
     global points
     points = points + 1
     print(f"You have {points} player points.")
@@ -313,6 +328,7 @@ def studying_earlier() -> None:
 
 
 def shower() -> None:
+    """What if you shower."""
     global points
     points = points + 2
     print(f"You have {points} player points.")
@@ -337,6 +353,7 @@ def shower() -> None:
 
 # Studying early answer
 def dressed_early() -> None:
+    """What if you study and then get dressed."""
     global points
     global player
     points = points + 2
@@ -352,6 +369,7 @@ def dressed_early() -> None:
 
 
 def early_teeth() -> None:
+    """What if you get up at a decent hour and brush your teeth."""
     global points
     global player
     points = points + 2
@@ -364,6 +382,7 @@ def early_teeth() -> None:
 
 
 def class_on_time() -> None:
+    """What if you get to class at a decent hour."""
     global points
     points = points + 3
     print(f"You have {points} player points.")
@@ -374,6 +393,7 @@ def class_on_time() -> None:
 
 # Score
 def score(a: int) -> int:
+    """Calculating how well the player did."""
     print(f"Your final score is: {a}")
     if points >= 8:
         print("Wow great job!! You got a perfect score!")
