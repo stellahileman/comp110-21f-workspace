@@ -3,6 +3,7 @@
 __author__ = "730400423"
 
 player: str
+points: int
 
 # Emojis
 CLOCK: str = '\U000023F0'
@@ -20,7 +21,7 @@ SCALE: str = '\U00002696'
 def main() -> None:
     """To start off the game."""
     global points
-    points: int = 0
+    points = 0
     greet()
     redo = 1
     while redo == 1:
@@ -53,11 +54,11 @@ def main() -> None:
         print("b. no")
         loop = 0
         while loop < 1:
-            choice: str = input("Make your choice here: ")
-            if choice == "a":
+            choice_two: str = input("Make your choice here: ")
+            if choice_two == "a":
                 loop = 2
                 redo = 1
-            elif choice == "b":
+            elif choice_two == "b":
                 loop = 2
                 print("Ok! See you later!")
                 redo = 0
@@ -394,6 +395,7 @@ def class_on_time() -> None:
 # Score
 def score(a: int) -> int:
     """Calculating how well the player did."""
+    global points
     print(f"Your final score is: {a}")
     if points >= 8:
         print("Wow great job!! You got a perfect score!")
