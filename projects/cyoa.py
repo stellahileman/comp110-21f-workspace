@@ -1,5 +1,7 @@
 """Choose your own adventure, getting to class style!"""
 
+__author__ = "730400423"
+
 player: str
 
 # Emojis
