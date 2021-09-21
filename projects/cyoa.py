@@ -1,5 +1,6 @@
 """Choose your own adventure, getting to class style!"""
 
+player: str
 
 # Emojis
 CLOCK: str = '\U000023F0'
@@ -16,9 +17,7 @@ SCALE: str = '\U00002696'
 
 def main() -> None:
     global points
-    global player
     points = 0
-    player: str
     greet()
     redo = 1
     while redo == 1:
@@ -258,6 +257,7 @@ def hurried() -> None:
         print("Great job you made it to class!!")
     else:
         print("YOU FAILED.")
+        print("Guess you can't make it to class :(")
     
 
 def computer() -> int:
